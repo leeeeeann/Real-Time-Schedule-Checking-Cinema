@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header" id="home">
+        <nav>
+            <h2 class="logo">Cinema</h2>
+            <ul>
+                <li><a href="index.html#nowplaying"><i class="fa-solid fa-film"></i>Now Playing</a></li>
+                <li><a href="index.html#upcoming"><i class="fa-regular fa-circle-play"></i>Upcoming</a></li>
+                <li><a href="index.html#theaters"><i class="fa-solid fa-location-dot"></i>Theaters</a></li>
+                <li class="dropdown">
+                    <a href="index.html#aboutus" id="aboutus-button"><i class="fa-solid fa-user"></i>About Us</a>
+                <div class="dropdown-content">
+                    <a href="#privacy-policy" id="privacy-policy-link">Privacy Policy</a>
+                    <a href="index.html#contact-us">Contact Us</a>
+                </div>
+                </li>
+            </ul>
+        </nav>
+       </header> 
+
+       <section id="upcomedetails">
+        <div class="movie-details">
+            <div class="movie-box">
+                <div class="video-box">
+                    <iframe src="" title="Movie Trailer" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                    <div class="bot">
+                        <div class="left">
+                            <div class="kiri-1">
+                                <p id="title">Movie Title</p>
+                                <div class="lefter">
+                                    <p id="details">ReleaseDate | MovieType | production</p>
+                                </div>
+                                <div class="lefter2">
+                                    <p id="casts">casts</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="righter">
+                                <h2>Synopsis</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Quasi ex in modi recusandae consequuntur deserunt cumque doloremque natus, 
+                                    similique quae adipisci repellendus fugit, itaque quibusdam eaque. 
+                                    Fuga atque sed nostrum odit quasi veniam eum laboriosam quae est molestiae 
+                                    officiis optio laudantium ea iste illum id pariatur ducimus consequatur fugit debitis!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+           
+    <section id="privacy-policy" class="popup-form hide">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Privacy Policy</h2>
+            <h4>INFORMATION WE COLLECT
+                PERSONAL INFORMATION
+                Personal Information may be submitted to NSR for the purposes of <br>
+                (a) receiving information from us;<br>
+                (b) buy movie ticket through Site; and <br>
+                (c) other purposes to support Service through Site. 
+                </h4>
+        </div>
+    </section>
+            
+        <footer id="footer">
+        <div class="footer">
+            <p>
+                2024 -
+                <i class="fa-regular fa-copyright"></i>
+                Copyright by lean teci
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+   <style>
+    
+    #upcomedetails{
+        width: 100%;
+        height: 1000px;
+        background-color: beige;
+        display: block;
+        padding: 30px;
+    }
+    .movie-detail {
+        display: grid;
+        margin-top: 50px;
+        grid-template-columns: 1fr 1fr; /* 2 kolom yang setara */
+        gap: 20px;
+    }
+    .movie-box {
+        margin-top: 100px;
+        border: 1px solid #ccc;
+        padding: 50px;
+        margin-left: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+        max-height: 850px;
+        background-color: #f9f9f9;
+    }
+    .video-box {
+            max-width: 560px;
+            margin-left: 30px;
+            text-align: center;
+            justify-content: center;
+        }
+    iframe {
+        width: 150%;
+        height: 473px;
+        justify-content: center;
+        } 
+    .bot{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        width: 825px;
+    }
+    /* CSS untuk mengatur bagian kiri */
+    .bot .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    }
+
+    /* CSS untuk bagian kanan */
+    .bot .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Memulai konten dari atas */
+}
+
+/* CSS untuk gaya teks */
+#title {
+    font-size: 50px;
+    margin-top: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border: 30px;
+    color: #9b005b;
+}
+
+.lefter{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+/* CSS untuk sinopsis */
+.righter {
+    margin-top: 30px; /* Memberi jarak atas dari elemen sebelumnya */
+    color: #9b005b;
+}
+
+.right p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.right h2 {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 20px;
+    font-weight: 2px;
+    color: #480b54;
+}
+.lefter2{
+    text-align: justify;
+    line-height: 1.6;
+    margin: 20px;
+    font-size: 15px;
+    color: #480b54;
+}
+   </style>
+
+<script>
+    
+    // Ambil parameter movie dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const movie = urlParams.get('movie');
+
+    // Data film sesuai dengan ID film
+    const movies = {
+        exorcism: {
+            trailer: 'https://www.youtube.com/embed/I1lNNd_klK4?si=NlZcVu2GYQULPtlX',
+            title: 'THE EXORCISM',
+            ReleaseDate: 'June 2024',
+            MovieType: 'Horror, Thriller',
+            production: 'Miramax',
+            casts: 'Russell Crowe, Ryan Simpkins, Sam Worthington, Chloe Bailey, Adam Goldberg, Adrian Pasdar, David Hyde Pierce, Tracey Bonner, Marcenae Lynette, Joshua John Miller',
+            synopsis: `A troubled actor begins to exhibit a disruptive behavior while shooting a horror film. His estranged daughter wonders if he's slipping back into his past addictions or if there's something more sinister at play.`
+        },
+        despicableme4: {
+            trailer: 'https://www.youtube.com/embed/qQlr9-rF32A?si=E_eWWcQ1CEBEQ-d-',
+            title: 'DESPICABLE ME 4',
+            ReleaseDate: 'July 2024',
+            MovieType: 'Animation, Comedy',
+            production: 'Universal Pictures',
+            casts: 'Steve Carell, Kristen Wiig, Joey King, Will Ferrell, Sofia Vergara, Miranda Cosgrove, Dana Gaier, Madison Skyy Polan, Pierre Coffin, Steve Coogan, Stephen Colbert, Chloe Fineman',
+            synopsis: `Gru, Lucy, Margo, Edith, dan Agnes siap menyambut anggota baru di keluarga. Di tengah kebahagiaan, Gru harus menghadapi penjahat bernama Maxime Le Mal yang berniat membalas dendam kepada Gru. Apakah Gru bisa menyelamatkan keluarga kecilnya?`
+    },
+        twisters: {
+            trailer: 'https://www.youtube.com/embed/Jm27YjLnPHc?si=8KM8iDQImYbY6z5C',
+            title: 'TWISTERS',
+            ReleaseDate: 'July 2024',
+            MovieType: 'Action, Adventure',
+            production: 'Warner Bros. Pictures',
+            casts: 'Glen Powell, Daisy Edgar-Jones, Maura Tierney, Kiernan Shipka, Katy O Brian, David Corenswet, Anthony Ramos, Sasha Lane, Paul Scheer, Daryl McCormack, Brandon Perea',
+            synopsis: `Tyler Owens (Glen Powell) and Kate Cooper (Daisy Edgar-Jones) are hurricane researchers and storm chasers who put their lives on the line in an effort to test a warning system that can mitigate Oklahoma's frequent hurricanes.`
+    },
+        deadpool: {
+            trailer: 'https://www.youtube.com/embed/73_1biulkYk?si=gLPK0bBiTr73G6V8',
+            title: 'DEADPOOL VS WOLVERINE',
+            ReleaseDate: 'July 2024',
+            MovieType: 'Action, Sci-Fi',
+            production: 'Walt Disney Pictures',
+            casts: 'Ryan Reynolds, Hugh Jackman, Emma Corrin, Morena Baccarin, Rob Delaney, Karan Soni, Leslie Uggams, Matthew Macfadyen',
+            synopsis: `The irresponsible Deadpool or Wade Wilson (Ryan Reynolds) is trusted to change the history of the Marvel Cinematic Universe (MCU) with Wolverine (Hugh Jackman). They work together to defeat a common enemy.`
+    },
+        myboo: {
+            trailer: 'https://www.youtube.com/embed/saBiD7UJt00?si=kp8-Wk86mLpeqCG_',
+            title: 'MY BOO',
+            ReleaseDate: 'July 2024',
+            MovieType: 'Romance, Comedy, Horror',
+            production: 'RA Pictures',
+            casts: 'Maylada Susri, Sutthirak Subvijitra, Chalermpol Thikampornteerawong, Tatchaya Supatanyasatit, Dharmthai Plangsilp, Punyawee Jungcharoen, Narttida Pitakwararat, Arunphong Naraphan, Kittiphong Boonprakh',
+            synopsis: `Joe (Sutthirak Subvijitra), a gamer, inherits a haunted house and its resident ghosts. However, neither the humans nor the ghosts want to leave the house. Eventually Joe and the ghosts decide to work together to run a haunted house ride to attract visitors for money. As time goes by Joe finds the ghosts there very charming, especially Anong (Maylada Susri), who intrigues him. Will these two people from two different worlds be able to overcome their differences and be together?`
+    }
+}
+
+const privacyPolicyLink = document.getElementById('privacy-policy-link');
+const popupForm = document.getElementById('privacy-policy');
+const closeBtn = document.querySelector('.close-btn');
+
+
+privacyPolicyLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    popupForm.classList.remove('hide');
+});
+
+
+closeBtn.addEventListener('click', function() {
+    popupForm.classList.add('hide');
+});
+
+
+window.addEventListener('click', function(event) {
+    if (event.target === popupForm) {
+        popupForm.classList.add('hide');
+    }
+});
+
+
+    // Isi data film ke dalam template
+    document.querySelector('#title').textContent = movies[movie].title;
+    document.querySelector('iframe').src = movies[movie].trailer;
+    document.querySelector('#details').textContent = `${movies[movie].ReleaseDate} | ${movies[movie].MovieType} | ${movies[movie].production}`;
+    document.querySelector('.righter p').textContent = movies[movie].synopsis;
+    document.querySelector('#casts').textContent = movies[movie].casts;
+
+
+
+
+
+</script>
+
+</body>
+</html>

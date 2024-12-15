@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header" id="home">
+        <nav>
+            <h2 class="logo">Cinema</h2>
+            <ul>
+                <li><a href="index.html#nowplaying"><i class="fa-solid fa-film"></i>Now Playing</a></li>
+                <li><a href="index.html#upcoming"><i class="fa-regular fa-circle-play"></i>Upcoming</a></li>
+                <li><a href="index.html#theaters"><i class="fa-solid fa-location-dot"></i>Theaters</a></li>
+                <li class="dropdown">
+                    <a href="index.html#aboutus" id="aboutus-button"><i class="fa-solid fa-user"></i>About Us</a>
+                <div class="dropdown-content">
+                    <a href="#privacy-policy" id="privacy-policy-link">Privacy Policy</a>
+                    <a href="index.html#contact-us">Contact Us</a>
+                </div>
+                </li>
+            </ul>
+        </nav>
+       </header> 
+
+
+   <section id="cinemaschedule">
+    <div id="clock"></div>
+    <div id="date"></div>
+    <table id="movie-table">
+        <thead>
+            <tr>
+                <th>Movie </th>
+                <th>Showtimes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be dynamically populated by JavaScript -->
+        </tbody>
+    </table>
+    <div id="app-popup" class="apppopup hide" >
+        <div class="popup-content">
+            <span class="close-btn" onclick="window.location.reload();">&times;</span>
+            <h2>Get the app on Playstore!</h2>
+            <a href="https://play.google.com/store" target="_blank">Get this App Now</a> 
+        </div>
+    </div>
+   </section>
+
+   <section id="privacy-policy" class="popup-form hide">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>Privacy Policy</h2>
+        <h4>INFORMATION WE COLLECT
+            PERSONAL INFORMATION
+            Personal Information may be submitted to NSR for the purposes of <br>
+            (a) receiving information from us;<br>
+            (b) buy movie ticket through Site; and <br>
+            (c) other purposes to support Service through Site. 
+            </h4>
+    </div>
+</section>
+
+   <footer id="footer">
+    <div class="footer">
+        <p>
+            2024 -
+            <i class="fa-regular fa-copyright"></i>
+            Copyright by lean teci
+        </p>
+    </div>
+</footer>
+
+<script src="script.js" defer></script>
+
+
+
+    <style>
+    #cinemaschedule{
+        width: 100%;
+        height: 3300px;
+        background-color: bisque;
+        display: block;
+        padding: 30px;
+    }
+   
+    #date {
+        padding-top: 7%;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 20px;
+        color: rgb(200, 20, 80);
+    }
+
+    #clock {
+        padding-top: 7%;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        margin-right: 20px;
+        color: rgb(200, 20, 80);
+    }
+    #movie-table {
+    width: 100%;
+    margin-top: 200px; /* Atur margin atas untuk menjaga jarak antara tabel dengan elemen di atasnya */
+    border-collapse: collapse;
+    width: 75%;
+    margin-left: 13%;
+
+}
+
+#movie-table th, #movie-table td {
+    padding: 10px;
+    text-align: center;
+    border: none; /* Hapus semua garis tepi */
+    color: rgb(116, 13, 48);
+}
+
+#movie-table th {
+    border-bottom: 3px solid rgb(116, 13, 48);; /* Garis bawah hanya pada header */
+}
+
+#movie-table img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Mengatur lebar kolom */
+#movie-table th:first-child,
+#movie-table td:first-child {
+    width: 25%; /* Lebar kolom pertama 25% dari lebar tabel */
+}
+
+#movie-table th:nth-child(2),
+#movie-table td:nth-child(2) {
+    width: 75%; /* Lebar kolom kedua 75% dari lebar tabel */
+    text-align: left;
+    padding-left: 6%;
+}
+
+/* Garis putih di antara baris */
+#movie-table tbody tr {
+    border-bottom: 3px solid rgb(116, 13, 48);; /* Garis putih di antara setiap baris */
+}
+
+/* Memberi latar belakang abu-abu untuk baris genap */
+#movie-table tbody tr:nth-child(even) {
+    background-color: bisque;
+}
+.movie-info {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.showtime-btn {
+    margin: 5px;
+    background-color: #592c53;
+    color: #e4d4b8;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 9px 30px;
+    border-radius: 30px;
+    transition: .4s;
+    display: inline-block; /* Menggunakan inline-block untuk tata letak tombol */
+}
+
+.showtime-btn:hover {
+    background-color: #f2f2f2;
+    border: 2px solid #592c53;
+    cursor: pointer;
+}
+.showtime-btn-disabled {
+    background-color: white; /* Warna abu-abu */
+    color: #592c53; /* Warna teks abu-abu yang lebih gelap */
+    cursor: not-allowed; /* Kursor tidak dapat diaktifkan */
+}
+.apppopup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .apppopup-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+.apppopup h2{
+    color: rgb(200, 20, 80);
+    font-size: 20px;
+    font-weight: bold;
+
+}   
+
+ 
+</style>
+
+<script>
+    function updateClockAndDate() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        const day = String(now.getDate()).padStart(2, '0');
+        const year = now.getFullYear();
+        
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
+        const dayOfWeek = daysOfWeek[now.getDay()];
+        const month = monthsOfYear[now.getMonth()];
+    
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        
+        const clock = document.getElementById('clock');
+        const date = document.getElementById('date');
+    
+        clock.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+        date.textContent = `${dayOfWeek}, ${day} ${month} ${year}`;
+    }
+    
+    function addMovieRow(posterUrl, showtimes, title, duration, age) {
+    const tableBody = document.querySelector('#movie-table tbody');
+    const newRow = document.createElement('tr');
+    
+    const posterCell = document.createElement('td');
+    const posterImg = document.createElement('img');
+    posterImg.src = posterUrl;
+    posterImg.alt = 'Movie Poster';
+    posterCell.appendChild(posterImg);
+    newRow.appendChild(posterCell);
+    
+    const showtimesCell = document.createElement('td');
+    const showtimesWrapper = document.createElement('div');
+    
+    // Add title, duration, and age information above showtimes
+    const infoLine = document.createElement('div');
+    infoLine.classList.add('movie-info');
+    infoLine.textContent = `${title} | ${duration} | ${age}`;
+    showtimesCell.appendChild(infoLine);
+    
+    // Create buttons for each showtime
+    const showtimesArray = showtimes.split(', ');
+    showtimesArray.forEach(time => {
+        const showtimeBtn = document.createElement('button');
+        showtimeBtn.textContent = time;
+        showtimeBtn.classList.add('showtime-btn'); // Optional: add a class for styling
+        
+        // Parse time and AM/PM
+        const [timeStr, period] = time.split(' ');
+        const [hours, minutes] = timeStr.split(':').map(num => parseInt(num, 10));
+        
+        // Convert 12-hour format to 24-hour format for comparison
+        let hours24 = hours;
+        if (period === 'PM' && hours !== 12) {
+            hours24 += 12;
+        } else if (period === 'AM' && hours === 12) {
+            hours24 = 0;
+        }
+        
+        // Check if showtime is in the past
+        const showtimeDate = new Date();
+        const now = new Date();
+        showtimeDate.setHours(hours24, minutes, 0, 0);
+        
+        if (showtimeDate < now) {
+            showtimeBtn.classList.add('showtime-btn-disabled'); // Add disabled class
+            showtimeBtn.disabled = true; // Disable the button
+        } else {
+            // Optional: Add click functionality to buttons if needed
+            showtimeBtn.addEventListener('click', () => {
+            showAppPopup();
+                // Add more functionality here if needed
+            });
+        }
+        
+        showtimesWrapper.appendChild(showtimeBtn);
+    });
+    
+    showtimesCell.appendChild(showtimesWrapper);
+    newRow.appendChild(showtimesCell);
+    
+    tableBody.appendChild(newRow);
+}
+
+
+
+// Sample data for demonstration
+const movies = [
+    { poster: 'images/insideout2.png', showtimes: '2:00 PM, 3:15 PM, 4:25 PM, 5:45 PM, 6:45 PM, 8:15 PM, 9:15 PM, 11:40 PM', title: 'INSIDE OUT 2', duration: '96 min', age: 'SU' },
+    { poster: 'images/badboys.png', showtimes: '12:20 PM, 2:20 PM, 4:30 PM, 6:20 PM, 8:15 PM', title: 'BAD BOYS: RIDE OR DIE', duration: '93 min', age: '17+' },
+    { poster: 'images/dilan.png', showtimes: '12:00 PM, 4:00 PM, 8:00 PM', title: 'DILAN 1983: WO AI NI', duration: '116 min', age: '13+' },
+    { poster: 'images/grandma.png', showtimes: '1:10 PM, 1:35 PM, 2:25 PM, 2:45 PM, 4:45 PM, 5:15 PM, 6:15 PM, 7:40 PM', title: 'HOW TO MAKE MILLIONS BEFORE GRANDMA DIES', duration: '126 min', age: '13+' },
+    { poster: 'images/garfield.png', showtimes: '1:20 PM, 2:20 PM, 4:30 PM, 5:20 PM, 6:15 PM, 8:20 PM', title: 'THE GARFIELD MOVIE', duration: '101 min', age: 'SU' },
+    { poster: 'images/haikyu.png', showtimes: '2:05 PM, 3:20 PM, 4:10 PM, 5:05 PM, 6:20 PM, 7:10 PM', title: 'PAKU TANAH JAWA', duration: '100 min', age: '17+' },
+    { poster: 'images/pakutanahjawa.png', showtimes: '1:20 PM, 2:15 PM, 4:25 PM, 5:45 PM, 6:25 PM, 8:35 PM, 9:15 PM, 9:40 PM', title: 'HAIKYU!! THE DUMPSTER BATTLE', duration: '86 min', age: '13+' },
+    { poster: 'images/strangers.png', showtimes: '12:06 PM, 2:25 PM, 4:32 PM, 6:27 PM, 8:18 PM', title: 'THE STARNGERS: CHAPTER 1', duration: '116 min', age: '13+' },
+    { poster: 'images/conan.png', showtimes: '12:20 PM, 4:02 PM, 8:03 PM, 7:03 PM', title: 'DETECTIVE CONAN VS KID THE PHANTOM THIEF', duration: '167 min', age: 'SU' },
+    { poster: 'images/theplot.png', showtimes: '1:10 PM, 3:25 PM, 4:35 PM, 5:45 PM, 6:45 PM, 8:15 PM, 9:25 PM, 9:40 PM', title: 'THE PLOT', duration: '85 min', age: '13+' },
+    { poster: 'images/ipar.png', showtimes: '12:20 PM, 2:20 PM, 4:30 PM, 6:20 PM, 8:15 PM', title: 'IPAR ADALAH MAUT', duration: '143 min', age: '17+' },
+    { poster: 'images/sengkolo.png', showtimes: '12:00 PM, 4:20 PM, 8:50 PM', title: 'SENGKOLO: MALAM SATU SURO', duration: '125 min', age: '13+' }
+];  
+
+// Adding sample rows to the table
+movies.forEach(movie => {
+    addMovieRow(movie.poster, movie.showtimes, movie.title, movie.duration, movie.age);
+});
+
+// Initial call
+updateClockAndDate();
+
+// Update every second
+setInterval(updateClockAndDate, 1000);
+
+
+const privacyPolicyLink = document.getElementById('privacy-policy-link');
+const popupForm = document.getElementById('privacy-policy');
+const closeBtn = document.querySelector('.close-btn');
+
+
+privacyPolicyLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    popupForm.classList.remove('hide');
+});
+
+
+closeBtn.addEventListener('click', function() {
+    popupForm.classList.add('hide');
+});
+
+
+window.addEventListener('click', function(event) {
+    if (event.target === popupForm) {
+        popupForm.classList.add('hide');
+    }
+});
+
+   // Menambahkan event listener untuk menampilkan form login ketika "Login" dipilih
+   myMtixDropdown.addEventListener("click", function(event) {
+     event.stopPropagation(); // Mencegah penutupan dropdown saat diklik
+     if (event.target.id === "login-link") {
+       showLoginPopup();
+     }
+   });
+
+// Function to show the pop-up
+function showAppPopup() {
+    const appPopup = document.getElementById('app-popup');
+    appPopup.classList.remove('hide');
+    appPopup.style.display = 'flex';
+}
+
+// Function to hide the pop-up
+function hideAppPopup() {
+    const appPopup = document.getElementById('app-popup');
+    appPopup.classList.add('hide');
+    appPopup.style.display = 'none';
+}
+
+// Event listener to close the pop-up when clicking the close button
+document.querySelector('.apppopup .close-btn').addEventListener('click', function() {
+    hideAppPopup();
+});
+
+
+showAppPopup();
+
+    </script>
+</body>
+</html>

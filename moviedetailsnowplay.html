@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header class="header" id="home">
+        <nav>
+            <h2 class="logo">Cinema</h2>
+            <ul>
+                <li><a href="index.html#nowplaying"><i class="fa-solid fa-film"></i>Now Playing</a></li>
+                <li><a href="index.html#upcoming"><i class="fa-regular fa-circle-play"></i>Upcoming</a></li>
+                <li><a href="index.html#theaters"><i class="fa-solid fa-location-dot"></i>Theaters</a></li>
+                <li class="dropdown">
+                    <a href="index.html#aboutus" id="aboutus-button"><i class="fa-solid fa-user"></i>About Us</a>
+                <div class="dropdown-content">
+                    <a href="#privacy-policy" id="privacy-policy-link">Privacy Policy</a>
+                    <a href="index.html#contact-us">Contact Us</a>
+                </div>
+                </li>
+            </ul>
+        </nav>
+       </header> 
+
+
+       <section id="nowplaydetails">
+        <div class="movie-details">
+            <div class="movie-box">
+                <div class="video-box">
+                    <iframe src="" title="Movie Trailer" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                    <div class="bot">
+                        <div class="left">
+                            <div class="kiri-1">
+                                <p id="title">Movie Title</p>
+                                <div class="lefter">
+                                    <p id="details">Duration | Rating | Age Rating</p>
+                                </div>
+                            </div>
+                            <div class="kiri-2">
+                                <button id="schedule">Check Schedule</button>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="righter">
+                                <h2>Synopsis</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Quasi ex in modi recusandae consequuntur deserunt cumque doloremque natus, 
+                                    similique quae adipisci repellendus fugit, itaque quibusdam eaque. 
+                                    Fuga atque sed nostrum odit quasi veniam eum laboriosam quae est molestiae 
+                                    officiis optio laudantium ea iste illum id pariatur ducimus consequatur fugit debitis!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="reviewForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating" required>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                    </select>
+                    <label for="feedback">Feedback:</label>
+                    <textarea id="feedback" name="feedback" required></textarea>
+                    <button type="submit" class="disabled" id="submit-review-button" >Submit Review</button>
+                </form>
+
+    <div id="login-required-popup" class="popup-form hide">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <p>You need to log in first to submit a review. The login option is available only on the home page.</p>
+        </div>
+    </div>
+    <div>
+                <h2>Reviews</h2>
+                <div id="reviews"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="privacy-policy" class="popup-form hide">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Privacy Policy</h2>
+            <h4>INFORMATION WE COLLECT
+                PERSONAL INFORMATION
+                Personal Information may be submitted to NSR for the purposes of <br>
+                (a) receiving information from us;<br>
+                (b) buy movie ticket through Site; and <br>
+                (c) other purposes to support Service through Site. 
+                </h4>
+        </div>
+    </section>
+    
+        <footer id="footer">
+        <div class="footer">
+            <p>
+                2024 -
+                <i class="fa-regular fa-copyright"></i>
+                Copyright by lean teci
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+   <style>
+    
+    #nowplaydetails{
+        width: 100%;
+        height: 1800px;
+        background-color: beige;
+        display: block;
+        padding: 30px;
+    }
+    .movie-detail {
+        display: grid;
+        margin-top: 50px;
+        grid-template-columns: 1fr 1fr; /* 2 kolom yang setara */
+        gap: 20px;
+    }
+    .movie-box {
+        margin-top: 100px;
+        border: 1px solid #ccc;
+        padding: 50px;
+        margin-left: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+        height: 1500px;
+        background-color: #f9f9f9;
+    }
+    .video-box {
+            max-width: 560px;
+            margin-left: 30px;
+            text-align: center;
+            justify-content: center;
+        }
+    iframe {
+        width: 150%;
+        height: 473px;
+        justify-content: center;
+        } 
+    .bot{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        width: 825px;
+    }
+    /* CSS untuk mengatur bagian kiri */
+    .bot .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    }
+
+    /* CSS untuk bagian kanan */
+    .bot .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Memulai konten dari atas */
+}
+
+/* CSS untuk gaya teks */
+#title {
+    font-size: 50px;
+    margin-top: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border: 30px;
+    color: #9b005b;
+}
+
+#schedule {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    background-color: #480b54;
+    color: beige;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 107px;
+    margin-top: 20px;
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+
+#schedule:hover {
+    transform: scale(1.2);
+}
+.lefter{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+/* CSS untuk sinopsis */
+.righter {
+    margin-top: 30px; /* Memberi jarak atas dari elemen sebelumnya */
+    color: #9b005b;
+}
+
+.right p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.right h2 {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 20px;
+    font-weight: 2px;
+    color: #480b54;
+}
+/* Submit Button */
+#submit-review-button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #480b54;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-review-button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#submit-review-button:not(.disabled):hover {
+    background-color: #480b54;
+}
+
+/* Popup styles */
+.popup-form {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-form .popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.popup-form .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.popup-form .close-btn:hover,
+.popup-form .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup-form.show {
+    display: block;
+}
+.hide{
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #nowplaydetails {
+        padding: 10px;
+    }
+
+    .movie-detail {
+        margin-top: 10px;
+        gap: 5px;
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .movie-box {
+        margin-top: 20px;
+        padding: 10px;
+        margin-left: 0; /* Remove left margin */
+        max-width: 100%; /* Ensure it fits the screen */
+        grid-template-columns: 1fr;
+    }
+
+    .video-box {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    iframe {
+        width: 80%;
+        height: 300px;
+    }
+
+    #title {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    #schedule {
+        font-size: 14px;
+        padding: 5px 15px;
+        margin-left: 0; /* Center on small screens */
+        margin-top: 10px;
+    }
+
+    .lefter {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .righter {
+        margin-top: 20px; /* Adjust top margin */
+    }
+
+    .right h2 {
+        font-size: 16px;
+    }
+
+    .bot {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr; /* Single column layout */
+        width: 100%;
+    }
+
+    .bot .left {
+        order: 1;
+    }
+
+    .bot .right {
+        order: 2;
+        margin-top: 20px; /* Adjust top margin for spacing */
+    }
+}
+
+   </style>
+
+<script>
+    // Ambil parameter movie dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const movie = urlParams.get('movie');
+
+    // Data film sesuai dengan ID film
+    const movies = {
+        insideout2: {
+            trailer: 'https://www.youtube.com/embed/LEjhY15eCx0?start=1',
+            title: 'INSIDE OUT 2',
+            duration: '96 min',
+            rating: '4.5 *',
+            ageRating: 'SU',
+            synopsis: `This adventure will take you into the complicated world of emotions. Along with the emotions of Joy, Sadness, Anger, Fear, and Disgust, Riley now also faces Anxiety, a new emotion with an orange color. The presence of Anxiety in Riley's headquarters adds drama to the emotional control room.`
+        },
+        badboys: {
+            trailer: 'https://www.youtube.com/embed/hRFY_Fesa9Q?si=JfNaHIVtx8fOhasP',
+            title: 'BAD BOYS: RIDE OR DIE',
+            duration: '93 min',
+            rating: '4 *',
+            ageRating: '17+',
+            synopsis: `Detectives Mike Lowrey (Will Smith) and Marcus Burnett (Martin Lawrence) are back in action.The two heroes are now living on the run after their late captain Conrad Howard (Joe Pantoliano) was accused of corruption. However, a video message from the captain suggests that there is a bigger crime going on within the Miami police force.`
+        },
+        dilan: {
+            trailer: 'https://www.youtube.com/embed/-TqgMfZg4Po?si=EcieR2v05_GVUmy0',
+            title: 'DILAN 1983 : WO AI NI',
+            duration: '116 min',
+            rating: '3.5 *',
+            ageRating: '13+',
+            synopsis: `Dilan's childhood when he was 12 years old. When he was 12 years old, Dilan joined his father on duty in Timor Leste, which was previously called East Timor. Dilan spent around 1.5 years in East Timor and returned to Bandung and went to school at his old place. In 1983, Dilan met a new ethnic Chinese student from Semarang named Mei Lien. Mei Lien's presence at Dilan's school makes him feel like he likes Mei so he wants to learn Mandarin. Dilan's desire to learn Mandarin surprised his family.`
+        },
+        grandma: {
+            trailer: 'https://www.youtube.com/embed/QTx4eY-jIo8?si=DyVi4vpPY0QH7iyq',
+            title: 'HOW TO MAKE MILLIONS BEFORE GRANDMA DIES',
+            duration: '126 min',
+            rating: '5 *',
+            ageRating: '13+',
+            synopsis: `The story of this film centers on a young man named M. He chooses to leave his job to take care of his grandmother, Amah, who has cancer. However, M's intention to care for Amah is not out of love. Rather, it is to target Amah's inheritance. Driven by the desire to get a million-dollar inheritance, M put aside his dreams as a game caster. He returned home to his terminally ill grandmother to care for her. However, winning Amah's heart was no easy feat. Amah is a tough woman who is difficult to conquer. She is demanding and very difficult to satisfy.`
+        },
+        garfield: {
+            trailer: 'https://www.youtube.com/IeFWNtMo1Fs?si=K6qalJuPJObEc5Zw',
+            title: 'THE GARFELD MOVIE',
+            duration: '101 min',
+            rating: '4 *',
+            ageRating: 'SU',
+            synopsis: `Garfield (voiced by Chris Pratt), the world-famous, Monday-hating, lasagna-loving indoor cat, is about to have a wild outdoor adventure. After an unexpected reunion with his long-lost father - scruffy street cat Vic (voiced by Samuel L. Jackson) - Garfield and his canine friend Odie are forced from their perfectly pampered life into joining Vic in a hilarious, high-stakes heist.`
+        },
+        pakutanahjawa: {
+            trailer: 'https://www.youtube.com/embed/aOaF02Ao9Bs?si=CF5GlGYnvHKyIey3',
+            title: 'PAKU TANAH JAWA',
+            duration: '100 min',
+            rating: '4 *',
+            ageRating: '17+',
+            synopsis: `Ningrum has had to face negative views from local residents since childhood because her mother, Handini, was always accused of having sex with many men. The death of one of Handini's close friends further plunges her family into local gossip. Ningrum's life becomes increasingly uneasy when the man she secretly loves, named Jalu, is trapped as Handini's new sacrifice. Ningrum has to face various supernatural terrors. Finally, Ningrum got a clue and asked for help from a Kyai who gave him a powerful spear to destroy black magic on earth.`
+        },
+        haikyu: {
+            trailer: 'https://www.youtube.com/embed/OQu2orbv_KA?si=4Tyolj2KsuLQqNPn',
+            title: 'HAIKYU!! THE DUMPSTER BATTLE',
+            duration: '86 min',
+            rating: '4 *',
+            ageRating: '13+',
+            synopsis: `Karasuno High School made it through the Miyagi prefecture preliminaries for the Harutaka Volleyball Tournament, which was crowded with strong teams, and advanced to the third round by defeating Hyogo Prefecture representative Inarizaki High School, which was considered one of the favorites for the championship. Their opponent, Nekoma High School, used to have a rivalry with Karasuno, and although their interactions with each other decreased at one point, after Hinata and the others joined the club, they once again became good friends, working out together at training camps and practice games. `
+        },
+        strangers: {
+            trailer: 'https://www.youtube.com/embed/3pZUQmZdOi4?si=rj4VBaZAEYckeGWb',
+            title: 'THE STRANGERS : CHAPTER 1',
+            duration: '116 min',
+            rating: '3 *',
+            ageRating: '13+',
+            synopsis: `After their car breaks down in an eerie small town, a young couple (Madelaine Petsch and Froy Gutierrez) are forced to spend the night in a remote cabin. Panic ensues as they are terrorized by three masked strangers who strike with no mercy and seemingly no motive in THE STRANGERS: CHAPTER 1, the chilling first entry of this upcoming horror feature film series.`
+        },
+        conan: {
+            trailer: 'https://www.youtube.com/embed/DHJrkN_GeX8?si=Y9IS5m5BQwRXUY3n',
+            title: 'DETECTIVE CONAN VS KID THE PHANTOM THIEF',
+            duration: '167 min',
+            rating: '4 *',
+            ageRating: 'SU',
+            synopsis: `High school student Kuroha Kaido discovers his late father's secret life as the Phantom Thief Kid, inherits his costume, and embarks on a quest to uncover the mysterious organization behind his father's murder.`
+        },
+        theplot: {
+            trailer: 'https://www.youtube.com/embed/NZ6kuHyiSEU?si=bI1c-93HALeWbvr2',
+            title: 'THE PLOT',
+            duration: '85 min',
+            rating: '3 *',
+            ageRating: '13+',
+            synopsis: `The story is about a hitman named Brain who suffers an accident during a murder and struggles to survive while suspecting everyone around him to find out who is behind the accident after barely surviving.`
+        },
+        ipar: {
+            trailer: 'https://www.youtube.com/embed/EW5vFLBpOfw?si=Mbon1PXHsKWrW6iH',
+            title: 'IPAR ADALAH MAUT',
+            duration: '143 min',
+            rating: '5 *',
+            ageRating: '17+',
+            synopsis: `Love is unpredictable. Nisa engages with Aris, a brilliant professor with a fascinating personality. Their marriage appears to be a picture-perfect fairytale, especially after the birth of their first child, Raya. However, just like love, problems also arise out of the blue. Nisa's mother entrusts her second daughter, Rani, to live with Aris and Nisa. Initially, Rani keeps her distance with Aris. It does not last long though, before the window to a forbidden relationship is opened. Behind Nisa's back, he develops an affair with his wife's sister.`
+        },
+        sengkolo: {
+            trailer: 'https://www.youtube.com/embed/mB8DCB42w8E?si=7EVoUE70R0U_Knkl',
+            title: 'SENGKOLO: MALAM SATU SURO',
+            duration: '125 min',
+            rating: '4 *',
+            ageRating: '13+',
+            synopsis: `Ibrahim, a mortician who lost his family in a terrible incident, quits his job. When a rich family in their village died mysteriously, the residents believed it was black magic. There were no bathers who wanted to bathe them, until the village head asked Ibrahim for help. Although reluctant, Ibrahim finally agreed. After a year, he finds clues about his family's death and confronts the evil that awaits him in the cursed house. Will he be able to fight the devil with his lost faith?`
+        }
+    };
+
+    //privacy policy
+const privacyPolicyLink = document.getElementById('privacy-policy-link');
+const popupForm = document.getElementById('privacy-policy');
+const closeBtn = document.querySelector('.close-btn');
+
+
+privacyPolicyLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    popupForm.classList.remove('hide');
+});
+
+
+closeBtn.addEventListener('click', function() {
+    popupForm.classList.add('hide');
+});
+
+
+window.addEventListener('click', function(event) {
+    if (event.target === popupForm) {
+        popupForm.classList.add('hide');
+    }
+});
+
+    
+
+    // Isi data film ke dalam template
+    document.querySelector('#title').textContent = movies[movie].title;
+    document.querySelector('iframe').src = movies[movie].trailer;
+    document.querySelector('#details').textContent = `${movies[movie].duration} | ${movies[movie].rating} | ${movies[movie].ageRating}`;
+    document.querySelector('.righter p').textContent = movies[movie].synopsis;
+
+    document.getElementById('schedule').addEventListener('click', function() {
+        window.location.href = 'index.html#theaters';
+    });
+
+    $(document).ready(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const movie = urlParams.get('movie');
+
+    // Load reviews for the specific movie
+    function loadReviews(movieId) {
+        var reviews = JSON.parse(localStorage.getItem('movieReviews')) || [];
+        var reviewsContainer = $('#reviews');
+        reviewsContainer.empty();
+        reviews.forEach(function(review) {
+            if (review.movie === movieId && review.rating !== '1') { // Filter out reviews with 1 star rating
+                var newReview = $('<div></div>').addClass('review');
+                newReview.html(`<strong>${review.name}</strong> rated <strong>${review.rating}</strong> stars<br>${review.feedback}`);
+                reviewsContainer.append(newReview);
+            }
+        });
+    }
+
+    // Load reviews when the page loads
+    loadReviews(movie);
+
+    $('#reviewForm').on('submit', function(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        // Get the form values
+        var name = $('#name').val();
+        var rating = $('#rating').val();
+        var feedback = $('#feedback').val();
+
+        // Only proceed if rating is valid (not '1')
+        if (rating === '1') {
+            alert('Please select a valid rating.');
+            return;
+        }
+
+        // Save review to local storage with movie identifier
+        var reviews = JSON.parse(localStorage.getItem('movieReviews')) || [];
+        var review = {
+            movie: movie,
+            name: name,
+            rating: rating,
+            feedback: feedback
+        };
+        reviews.push(review);
+        localStorage.setItem('movieReviews', JSON.stringify(reviews));
+
+        // Clear the form fields
+        $('#name').val('');
+        $('#rating').val('1');
+        $('#feedback').val('');
+
+        // Reload reviews for the current movie
+        loadReviews(movie);
+    });
+});
+
+ // Function to toggle the submit review button appearance based on login status
+function toggleSubmitReviewButton() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const submitReviewButton = document.getElementById('submit-review-button');
+
+    if (isLoggedIn) {
+        submitReviewButton.classList.remove('disabled');
+    } else {
+        submitReviewButton.classList.add('disabled');
+    }
+}
+
+// Show login required popup
+function showLoginRequiredPopup() {
+    document.getElementById('login-required-popup').classList.add('show');
+}
+
+// Close popup
+function closePopup(element) {
+    const popupForm = element.closest('.popup-form');
+    popupForm.classList.remove('show');
+    
+    if (popupForm.id === 'login-popup') {
+        resetLoginForm();
+    }
+}
+
+// Add event listener for the submit review button
+document.getElementById('submit-review-button').addEventListener('click', function(event) {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+        event.preventDefault();
+        showLoginRequiredPopup();
+    }
+});
+
+// Add event listeners for closing the popup
+document.querySelectorAll('.close-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        closePopup(btn);
+    });
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('popup-form')) {
+        event.target.classList.remove('show');
+    }
+});
+
+// Call the toggleSubmitReviewButton function on page load
+document.addEventListener('DOMContentLoaded', function() {
+    toggleSubmitReviewButton();
+    checkLoginStatus();
+});
+
+// Function to check login status
+function checkLoginStatus() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const myMtixBtn = document.getElementById('my-mtix-btn');
+    const myMtixDropdown = document.getElementById('my-mtix-dropdown');
+
+    if (isLoggedIn) {
+        myMtixBtn.innerHTML = '<i class="fa-solid fa-user"></i>';
+        myMtixDropdown.innerHTML = `
+            <a href="#" id="logout-link"><i class="fa-solid fa-sign-out"></i> Logout</a>
+        `;
+
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            localStorage.removeItem('isLoggedIn');
+            myMtixBtn.innerHTML = 'My M-tix';
+            myMtixDropdown.innerHTML = `
+                <a href="#" id="login-link"><i class="fa-solid fa-sign-in"></i> Login</a>
+            `;
+            setupLoginLink();
+        });
+    } else {
+        myMtixBtn.innerHTML = 'My M-tix';
+        myMtixDropdown.innerHTML = `
+            <a href="#" id="login-link"><i class="fa-solid fa-sign-in"></i> Login</a>
+        `;
+        setupLoginLink();
+    }
+}
+
+// Function to setup login link
+function setupLoginLink() {
+    document.getElementById('login-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        showLoginPopup();
+    });
+}
+
+// Initial setup
+document.addEventListener('DOMContentLoaded', function() {
+    toggleSubmitReviewButton();
+    checkLoginStatus();
+});
+
+
+
+
+</script>
+</body>
+</html>
